@@ -1,18 +1,18 @@
-## Libraries----------------------------------------------------------------------------------------------
+## Libraries---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 library(factoextra)
 library(ggplot2)
 library(cluster)
 library(mclust)
 
-## Load data----------------------------------------------------------------------------------------------
+## Load data---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 cell <- read.csv("D:/Y79_data.csv", header = TRUE)
 attach(cell)
 ggpairs(cell[-1])
 ggplot(cell, aes(diameter, Vmb)) + geom_point()
 
-## K-means clustering---------------------------------------------------------------------------------
+## K-means clustering------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Function to compute total within-cluster sum of square
 wssplot <- function(data, nc=15, seed=1234){
@@ -24,8 +24,8 @@ wssplot <- function(data, nc=15, seed=1234){
        ylab="Within groups sum of squares")
 }
 
-# plotting values for each cluster starting from 1 to 9
-wssplot(cell[-1], nc = 9)
+
+wssplot(cell[-1], nc = 9)           # optimal number of clusters: 3
 
 set.seed(1)
 cluster.cell<- kmeans(cell[-1], 3, nstart = 20)
@@ -41,7 +41,7 @@ fviz_cluster(cluster.cell, data =cell[-1])
 
 
 
-## Model based clustering-------------------------------------------------------------------------------
+## Model based clustering--------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 # Automatic best model and cluster count selection via BIC:
