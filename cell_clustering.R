@@ -1,3 +1,7 @@
+# The data for this analysis were obtained from the following link:
+# https://www.kaggle.com/joseguzman/y79-retinoblastoma-cells
+
+
 ## Libraries---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 library(factoextra)
